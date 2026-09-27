@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amiss Store — Nothing amiss. Just deals.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="header-top">
+    <div class="wrap header-top-inner">
+      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <a href="#" class="wordmark">Amiss<span class="wordmark-dot">.</span></a>
+
+      <div class="search-shell">
+        <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="searchInput" placeholder="Search for anything you don't need but sort of want" autocomplete="off">
+      </div>
+
+      <button class="icon-btn cart-btn" id="cartToggle" aria-label="Open cart">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+
+  <nav class="header-nav">
+    <div class="wrap nav-inner" id="categoryNav">
+      <!-- category chips injected by app.js -->
+    </div>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <p class="hero-kicker">The premise is simple.</p>
+      <h1 class="hero-headline">If it looks <em>too&nbsp;good</em><br>to be true, buy&nbsp;two.</h1>
+      <p class="hero-sub">Amiss Store sources the same factories everyone else does &mdash; we just skip the part where you pay for the brand name. New drops daily, prices that don't round up.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" data-scroll="products">Shop the drop</button>
+        <button class="btn btn-ghost" data-scroll="deals-strip">See today's deals</button>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-card card-a">
+        <img src="https://picsum.photos/seed/amiss-hero-1/320/320" alt="">
+        <span class="hero-tag">-62%</span>
+      </div>
+      <div class="hero-card card-b">
+        <img src="https://picsum.photos/seed/amiss-hero-2/260/260" alt="">
+      </div>
+      <div class="hero-card card-c">
+        <img src="https://picsum.photos/seed/amiss-hero-3/220/280" alt="">
+        <span class="hero-tag hero-tag-alt">-40%</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEALS STRIP ============ -->
+<section class="deals-strip" id="deals-strip">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Ending soon</h2>
+      <div class="countdown" id="countdown">
+        <span id="cd-h">00</span>:<span id="cd-m">00</span>:<span id="cd-s">00</span>
+      </div>
+    </div>
+    <div class="deals-row" id="dealsRow"></div>
+  </div>
+</section>
+
+<!-- ============ PRODUCT GRID ============ -->
+<section class="products" id="products">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="gridTitle">Everything, basically</h2>
+      <p class="result-count" id="resultCount"></p>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+    <p class="empty-state" id="emptyState" hidden>Nothing matches that search. Try a different word, or clear the filter and start over.</p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <p class="wordmark footer-wordmark">Amiss<span class="wordmark-dot">.</span></p>
+      <p>Nothing amiss. Just deals.</p>
+    </div>
+    <div class="footer-col">
+      <h3>Store</h3>
+      <a href="#">About us</a>
+      <a href="#">How shipping works</a>
+      <a href="#">Track an order</a>
+    </div>
+    <div class="footer-col">
+      <h3>Help</h3>
+      <a href="#">Returns &amp; refunds</a>
+      <a href="#">Contact support</a>
+      <a href="#">Terms of service</a>
+    </div>
+    <div class="footer-col">
+      <h3>Pay your way</h3>
+      <div class="pay-icons">
+        <span>VISA</span><span>MC</span><span>Verve</span><span>Transfer</span>
+      </div>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>&copy; <span id="year"></span> Amiss Store. Built for demo purposes &mdash; no real orders are placed.</p>
+  </div>
+</footer>
+
+<!-- ============ CART DRAWER ============ -->
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+  <div class="cart-drawer-head">
+    <h2>Your cart</h2>
+    <button class="icon-btn" id="cartClose" aria-label="Close cart">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-empty" id="cartEmpty">
+    <p>Your cart is empty.</p>
+    <p class="cart-empty-sub">That's the one thing here that isn't a deal.</p>
+  </div>
+  <div class="cart-footer" id="cartFooter">
+    <div class="cart-line"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
+    <div class="cart-line cart-line-muted"><span>Shipping</span><span>Calculated at checkout</span></div>
+    <div class="cart-line cart-line-total"><span>Total</span><span id="cartTotal">$0.00</span></div>
+    <button class="btn btn-primary btn-full" id="checkoutBtn">Checkout</button>
+  </div>
+</aside>
+
+<!-- ============ TOAST ============ -->
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
